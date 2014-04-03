@@ -12,8 +12,7 @@ Run 3 selenium nodes:
 dockyum.sh start-node 3
 ```
 
-Run 15 selenium nodes to remote grid:
-```bash
+Run 15 selenium nodes to remote grid:```bash
 dockyum.sh start-node 15 192.168.1.222
 ```
 
