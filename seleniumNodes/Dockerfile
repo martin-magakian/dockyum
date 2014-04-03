@@ -1,4 +1,5 @@
 FROM ubuntu:12.04
+MAINTAINER Martin Magakian "dev.martin.magakian@gmail.com"
 
 #install java
 RUN apt-get update

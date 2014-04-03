@@ -1,4 +1,5 @@
 FROM ubuntu:12.04
+MAINTAINER Martin Magakian "dev.martin.magakian@gmail.com"
 
 RUN apt-get update
 RUN apt-get install software-properties-common python-software-properties -y

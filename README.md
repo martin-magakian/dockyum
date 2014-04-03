@@ -2,25 +2,52 @@ dockynium = Docker with Selenium
 =========
 
 
-Run the selenium hub:
+Run the selenium grid:
 ```bash
-docker run -p 4444:4444 -d --name selenium_hub doduck/seleniumHub
+dockyum.sh start-grid 
 ```
 
-Run the selenium nodes (3 nodes):
+Run 3 selenium nodes:
 ```bash
-DOCKER_IP=$(ip addr show dev eth0 | grep "inet " | awk '{print $2}' | cut -d '/' -f 1)
-docker run -e "HUB_IP=172.16.254.131" -e "DOCKER_IP=$DOCKER_IP" -e "TOTAL_NODE=3" -p 2222:22 -p 5555:5555 -p 5556:5556 -p 5557:5557 -d doduck/seleniumNodes
+dockyum.sh start-node 3
 ```
 
-(Optional)
+Run 15 selenium nodes to remote grid:
+```bash
+dockyum.sh start-node 15 192.168.1.222
+```
+
+
+Run without dockyum.sh
+---
+Run the selenium grid:
+```bash
+dockyum.sh start-grid
+```
+
+Run 3 selenium nodes to remote grid:
+```bash
+docker run -d -e GRID_IP=172.16.254.131 -e DOCKER_IP=172.16.254.131 -e TOTAL_NODE=3  -p 2222:22 -p 5555:5555 -p 5556:5556 -p 5557:5557 doduck/seleniumNodes
+```
+* GRID_IP ip of the Selenium grid
+* DOCKER_IP ip of the computer where your running the command from
+* TOTAL_NODE number of node to start
+
+* Be carefull to the port redirection.<br />
+If you start 3 nodes you need to export 3 port starting from port 5555<br />
+see: -p 5555:5555 -p 5556:5556 -p 5557:5557
+
+
+
+
+(Optional) Build your own image
 ----
 Docker build the selenium hub:
 ```bash
-docker build -t doduck/seleniumHub ./hub
+docker build -t doduck/seleniumGrid ./seleniumGrid
 ```
 
 Docker build the selenium nodes:
 ```bash
-docker build -t doduck/seleniumNodes ./node
+docker build -t doduck/seleniumNodes ./seleniumNodes
 ```
