@@ -12,7 +12,8 @@ Run 3 selenium nodes:
 dockyum.sh start-node 3
 ```
 
-Run 15 selenium nodes to remote grid:```bash
+Run 15 selenium nodes to remote grid:
+```bash
 dockyum.sh start-node 15 192.168.1.222
 ```
 
@@ -31,8 +32,7 @@ docker run -d -e GRID_IP=172.16.254.131 -e DOCKER_IP=172.16.254.131 -e TOTAL_NOD
 * GRID_IP ip of the Selenium grid
 * DOCKER_IP ip of the computer where your running the command from
 * TOTAL_NODE number of node to start
-
-* Be carefull to the port redirection.<br />
+* Be carefull to the port redirection !
 If you start 3 nodes you need to export 3 port starting from port 5555<br />
 see: -p 5555:5555 -p 5556:5556 -p 5557:5557
 
