@@ -31,11 +31,11 @@ function startnode() {
 		CONTENEUR_PORT_REDIRECT=$CONTENEUR_PORT_REDIRECT" -p $((5554 + $i)):$((5554 + $i))"
 	done
 	
-	docker run -d -e "GRID_IP=$GRID_IP" -e "DOCKER_IP=$DOCKER_IP" -e "TOTAL_NODE=$TOTAL_NODE" $CONTENEUR_PORT_REDIRECT doduck/seleniumNodes
+	docker run -d -e "GRID_IP=$GRID_IP" -e "DOCKER_IP=$DOCKER_IP" -e "TOTAL_NODE=$TOTAL_NODE" $CONTENEUR_PORT_REDIRECT doduck/selenium-nodes
 }
 
 function startgrid() {
-	docker run -d -p 4444:4444 doduck/seleniumGrid
+	docker run -d -p 4444:4444 doduck/selenium-grid
 	echo "grid running on:"
 	echo "http://$LOCAL_IP:4444/grid/console"
 }
