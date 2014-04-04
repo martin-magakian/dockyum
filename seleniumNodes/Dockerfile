@@ -1,16 +1,12 @@
 FROM ubuntu:12.04
 MAINTAINER Martin Magakian "dev.martin.magakian@gmail.com"
 
-#install java
+#install Java
 RUN apt-get update
-RUN apt-get install software-properties-common python-software-properties -y
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get update
-RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
-RUN apt-get install oracle-java7-installer -y
+RUN apt-get install -y software-properties-common python-software-properties wget
+RUN apt-get install -y --no-install-recommends openjdk-7-jre-headless
 
-#install selenium
+#download selenium
 RUN wget -P /opt http://selenium-release.storage.googleapis.com/2.41/selenium-server-standalone-2.41.0.jar
 
 #install phantomjs

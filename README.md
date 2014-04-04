@@ -1,7 +1,6 @@
 dockynium = Docker with Selenium
 =========
 
-
 Run the selenium grid:
 ```bash
 dockyum.sh start-grid 
@@ -17,12 +16,11 @@ Run 15 selenium nodes to remote grid:
 dockyum.sh start-node 15 192.168.1.222
 ```
 
-
 Run without dockyum.sh
 ---
 Run the selenium grid:
 ```bash
-dockyum.sh start-grid
+docker run -d -p 4444:4444 doduck/seleniumGrid
 ```
 
 Run 3 selenium nodes to remote grid:
@@ -36,8 +34,13 @@ docker run -d -e GRID_IP=172.16.254.131 -e DOCKER_IP=172.16.254.131 -e TOTAL_NOD
 If you start 3 nodes you need to export 3 port starting from port 5555<br />
 see: -p 5555:5555 -p 5556:5556 -p 5557:5557
 
-
-
+Stop the grid
+----
+No tools provided for this task (feel free to contribute)
+Stop all Docker containers
+```bash
+docker stop $(docker ps -a -q)
+```
 
 (Optional) Build your own image
 ----
