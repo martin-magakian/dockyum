@@ -3,17 +3,17 @@ Docker + Selenium = Dockyum
 
 Run the selenium grid:
 ```bash
-dockyum.sh start-grid 
+./dockyum.sh start-grid 
 ```
 
 Run 3 selenium nodes:
 ```bash
-dockyum.sh start-node 3
+./dockyum.sh start-node 3
 ```
 
 Run 15 selenium nodes to remote grid:
 ```bash
-dockyum.sh start-node 15 192.168.1.222
+./dockyum.sh start-node 15 192.168.1.222
 ```
 
 Run without dockyum.sh
