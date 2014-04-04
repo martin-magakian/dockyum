@@ -1,4 +1,4 @@
-dockynium = Docker with Selenium
+Docker + Selenium = Dockyum
 =========
 
 Run the selenium grid:
